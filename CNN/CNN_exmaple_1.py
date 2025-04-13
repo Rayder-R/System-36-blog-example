@@ -19,13 +19,6 @@ test_label_onehot = keras.utils.to_categorical(test_label)
 
 # 載入已訓練的 CNN 模型
 model = keras.models.load_model("cnn_model(old).h5")
-# model = keras.Sequential([
-#     keras.Input(shape=(28, 28, 1)),  # 這是新的標準寫法
-#     layers.Conv2D(32, (3, 3), activation="relu"),
-#     layers.MaxPooling2D(pool_size=(2, 2)),
-#     layers.Flatten(),
-#     layers.Dense(10, activation="softmax")
-# ])
 
 # 進行預測，並取出最大機率的類別索引
 prediction = np.argmax(model.predict(test_feature_normalize), axis=1)
